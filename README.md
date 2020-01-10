@@ -22,18 +22,40 @@
 			maven</span> <span class="token punctuation">{</span> url <span class="token string">'https://jitpack.io'</span> <span class="token punctuation">}</span>
 		<span class="token punctuation">}</span>
 	<span class="token punctuation">}</span></code></pre>
+						      
+						     
+</code></pre>
   </div>
   </div>
-   <p><b>Step 2.</b> Add the dependency</p>
-                        <div class="tab-content">
+  
+  <div class="tab-content">
 					      <div role="tabpanel" class="tab-pane active" id="gradle">
-                   <code id="depCodeGradle" class=" kode  language-css">	<span class="token selector">dependencies</span> <span class="token punctuation">{</span>
-	        implementation <span class="token string">'com.github.koushik100:MyRestAPI:-SNAPSHOT'</span>
-	<span class="token punctuation">}</span>
-</code>
-                   
-                  
-                        
+						      <b>USES</b> 
+				</p>
+	  <p>POST Method and raw JSON params</p>
+                            <pre class="kode language-css code-toolbar">
+			    <code class=" kode language-css">
+			    <span class="token selector">
+			    val params=HashMap<String,Any>()
+        params.put("email","koushik@gmail.com")
+        params.put("password","abcd@123")
+        MAPCALL(LOGINURLS, POST,params,null,object:Responselistener{
+            override fun OnSucess(Responseobject: String?) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
+            override fun OnError(Error: String?) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
+            override fun Start() {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
+        })
+			   
+ 
+                 
 						
 
 						
