@@ -1,4 +1,7 @@
 # MyRestAPI
+[![](https://jitpack.io/v/koushik100/MyRestAPI.svg)](https://jitpack.io/#koushik100/MyRestAPI)
+
+
 
 <div class="row">
 		<div class="col-lg-10">
@@ -67,7 +70,6 @@
                  
 		
 		
-[![](https://jitpack.io/v/koushik100/MyRestAPI.svg)](https://jitpack.io/#koushik100/MyRestAPI)
 
 						
 					
