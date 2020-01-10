@@ -27,7 +27,16 @@
 </code></pre>
   </div>
   </div>
-  
+  <div class="col-lg-8">
+		<p><b>Step 2.</b> Add the dependency</p> 
+			</div>
+			<pre class="kode code-toolbar  language-css"><code id="depCodeGradle" class=" kode  language-css">	<span class="token selector">dependencies</span> <span class="token punctuation">{</span>
+	        implementation <span class="token string">'com.github.koushik100:MyRestAPI:-SNAPSHOT'</span>
+	<span class="token punctuation">}</span>
+</code></pre>
+			
+                       
+			
   <div class="tab-content">
 					      <div role="tabpanel" class="tab-pane active" id="gradle">
 						      <b>USES</b> 
