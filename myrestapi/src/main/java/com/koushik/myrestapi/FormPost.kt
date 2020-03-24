@@ -34,6 +34,8 @@ class FormPost(
                 val respCode = result.code
                 when (respCode) {
                     200 -> listner.OnSucess(result.response)
+                    201 -> listner.OnSucess(result.response)
+                    422 -> listner.OnError(result.response)
                     401 -> listner.OnError("Authentication failed.")
                     500 -> listner.OnError("The request was not completed. The server met an unexpected condition.")
                     503 -> listner.OnError("The request was not completed. The server is temporarily overloading or down.")
