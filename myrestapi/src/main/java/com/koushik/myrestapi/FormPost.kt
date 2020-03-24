@@ -1,6 +1,7 @@
 package com.koushik.myrestapi
 
 import android.os.AsyncTask
+import com.google.gson.Gson
 import okhttp3.Headers
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
@@ -31,6 +32,11 @@ class FormPost(
 
             try {
                 Klog.d("## FORM RESPONSE_", result.response)
+                Klog.d(
+                    "## RES-",
+                    "$url \n CODE- ${result!!.code} REQ- ${Gson().toJson(params)} \n $result"
+                )
+
                 val respCode = result.code
                 when (respCode) {
                     200 -> listner.OnSucess(result.response)

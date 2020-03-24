@@ -22,7 +22,7 @@ class MAPCALL(
 ) : AsyncTask<Void, String, ResponseData?>() {
     override fun onPostExecute(result: ResponseData?) {
         super.onPostExecute(result)
-        Klog.d("## RES-", "$url \n REQ- ${Gson().toJson(params)} \n $result")
+        Klog.d("## RES-", "$url \n CODE- ${result!!.code} REQ- ${Gson().toJson(params)} \n $result")
         if (result == null) {
             listner.OnError("Something Went Wrong please try again")
         } else {
