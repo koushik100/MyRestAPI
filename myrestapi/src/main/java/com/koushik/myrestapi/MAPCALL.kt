@@ -24,7 +24,7 @@ class MAPCALL(
         super.onPostExecute(result)
         Klog.d("## RES-", "$url \n CODE- ${result!!.code} REQ- ${Gson().toJson(params)} \n $result")
         if (result == null) {
-            listner.OnError("Something Went Wrong please try again")
+            listner.OnError(500, "Something Went Wrong please try again")
         } else {
 
             try {
@@ -32,18 +32,20 @@ class MAPCALL(
                 when (respCode) {
                     200 -> listner.OnSucess(result.response)
                     201 -> listner.OnSucess(result.response)
-                    422 -> listner.OnError(result.response)
-                    401 -> listner.OnError("Authentication failed.")
-                    500 -> listner.OnError("The request was not completed. The server met an unexpected condition.")
-                    503 -> listner.OnError("The request was not completed. The server is temporarily overloading or down.")
-                    403 -> listner.OnError("Access is forbidden to the requested page.")
-                    404 -> listner.OnError("The server can not find the requested page.")
-                    else -> listner.OnError("Unknown error please try again later.")
+                    422 -> listner.OnError(422, result.response)
+                    401 -> listner.OnError(401, "Authentication failed.")
+                    503 -> listner.OnError(
+                        503,
+                        "The request was not completed. The server is temporarily overloading or down."
+                    )
+                    403 -> listner.OnError(403, "Access is forbidden to the requested page.")
+                    404 -> listner.OnError(404, "The server can not find the requested page.")
+                    else -> listner.OnError(respCode, "Unknown error please try again later.")
                 }
 
             } catch (e: JSONException) {
                 e.printStackTrace()
-                listner.OnError("Something Went Wrong please try again later.")
+                listner.OnError(500, "Something Went Wrong please try again later.")
             }
 
         }

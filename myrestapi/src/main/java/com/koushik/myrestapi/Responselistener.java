@@ -5,6 +5,6 @@ public interface Responselistener {
 
     void OnSucess(String Responseobject);
 
-    void OnError(String Error);
+    void OnError(int code, String Error);
 
 }
