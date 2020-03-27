@@ -2,11 +2,8 @@ package com.koushik.myrestapi
 
 import android.os.AsyncTask
 import com.google.gson.Gson
-import okhttp3.Headers
+import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
-import okhttp3.MultipartBody
-import okhttp3.OkHttpClient
-import okhttp3.Request
 import okhttp3.RequestBody.Companion.toRequestBody
 import org.json.JSONException
 import java.io.IOException
@@ -69,9 +66,9 @@ class MAPCALL(
         val bodybuilder = MultipartBody.Builder()
         bodybuilder.setType(MultipartBody.FORM)
 
-        val body = null;
+        var body: RequestBody? = null;
         if (params != null)
-            Gson().toJson(params).toRequestBody(MEDIA_TYPE)
+            body = Gson().toJson(params).toRequestBody(MEDIA_TYPE)
         val builder = Headers.Builder()
         if (header != null)
             for (entry in header.entries) {
