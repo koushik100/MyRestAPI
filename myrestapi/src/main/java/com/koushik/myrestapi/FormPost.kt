@@ -2,11 +2,8 @@ package com.koushik.myrestapi
 
 import android.os.AsyncTask
 import com.google.gson.Gson
-import okhttp3.Headers
+import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
-import okhttp3.MultipartBody
-import okhttp3.OkHttpClient
-import okhttp3.Request
 import okhttp3.RequestBody.Companion.asRequestBody
 import org.json.JSONException
 import java.io.File
@@ -79,8 +76,8 @@ class FormPost(
 
         val bodybuilder = MultipartBody.Builder()
         bodybuilder.setType(MultipartBody.FORM)
-
-        if (params != null)
+        var requestBody: RequestBody? = null
+        if (params != null) {
             for (entry in params.entries) {
                 if (entry.value is File) {
                     val Requploadfile = entry.value as File
@@ -93,8 +90,10 @@ class FormPost(
                 } else
                     bodybuilder.addFormDataPart(entry.key, entry.value.toString())
             }
-        val requestBody = bodybuilder
-            .build()
+            requestBody = bodybuilder
+                .build()
+        }
+
 
         val builder = Headers.Builder()
         if (header != null)

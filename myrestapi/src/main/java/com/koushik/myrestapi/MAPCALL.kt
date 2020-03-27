@@ -69,7 +69,9 @@ class MAPCALL(
         val bodybuilder = MultipartBody.Builder()
         bodybuilder.setType(MultipartBody.FORM)
 
-        val body = Gson().toJson(params).toRequestBody(MEDIA_TYPE)
+        val body = null;
+        if (params != null)
+            Gson().toJson(params).toRequestBody(MEDIA_TYPE)
         val builder = Headers.Builder()
         if (header != null)
             for (entry in header.entries) {
