@@ -39,7 +39,7 @@ class JSONCALL(
                     200 -> listner.OnSucess(result.response)
                     201 -> listner.OnSucess(result.response)
                     422 -> listner.OnError(422, result.response)
-                    401 -> listner.OnError(401, "Authentication failed.")
+                    401 -> listner.OnError(401, result.response)
                     503 -> listner.OnError(
                         503,
                         "The request was not completed. The server is temporarily overloading or down."
