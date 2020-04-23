@@ -32,7 +32,9 @@ class MAPCALL(
                     422 -> listner.OnError(422, result.response)
                     401 -> {
                         listner.OnError(401, result.response)
-                        this.execute()
+                    }
+                    409 -> {
+                        listner.OnError(409, result.response)
                     }
                     503 -> listner.OnError(
                         503,
