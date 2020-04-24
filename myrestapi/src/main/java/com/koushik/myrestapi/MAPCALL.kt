@@ -30,6 +30,7 @@ class MAPCALL(
                     200 -> listner.OnSucess(result.response)
                     201 -> listner.OnSucess(result.response)
                     422 -> listner.OnError(422, result.response)
+                    402 -> listner.OnError(402, result.response)
                     401 -> {
                         listner.OnError(401, result.response)
                     }
