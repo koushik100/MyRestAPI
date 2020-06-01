@@ -44,6 +44,9 @@ class JSONCALL(
                     409 -> {
                         listner.OnError(409, result.response)
                     }
+                    400 -> {
+                        listner.OnError(400, result.response)
+                    }
                     503 -> listner.OnError(
                         503,
                         "The request was not completed. The server is temporarily overloading or down."

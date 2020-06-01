@@ -29,13 +29,22 @@ class MAPCALL(
                 when (respCode) {
                     200 -> listner.OnSucess(result.response)
                     201 -> listner.OnSucess(result.response)
-                    422 -> listner.OnError(422, result.response)
-                    402 -> listner.OnError(402, result.response)
+                    422 -> {
+                        listner.OnError(422, result.response)
+                        return
+                    }
+                    402 -> {
+                        listner.OnError(402, result.response)
+                        return
+                    }
                     401 -> {
                         listner.OnError(401, result.response)
                     }
                     409 -> {
                         listner.OnError(409, result.response)
+                    }
+                    400 -> {
+                        listner.OnError(400, result.response)
                     }
                     503 -> listner.OnError(
                         503,
