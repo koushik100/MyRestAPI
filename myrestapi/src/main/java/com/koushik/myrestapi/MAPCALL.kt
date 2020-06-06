@@ -51,6 +51,7 @@ class MAPCALL(
                         "The request was not completed. The server is temporarily overloading or down."
                     )
                     403 -> listner.OnError(403, result.response)
+                    409 -> listner.OnError(409, result.response)
                     404 -> listner.OnError(404, "The server can not find the requested page.")
                     else -> listner.OnError(respCode, "Unknown error please try again later.")
                 }
