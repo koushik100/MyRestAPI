@@ -40,9 +40,7 @@ class MAPCALL(
                     401 -> {
                         listner.OnError(401, result.response)
                     }
-                    409 -> {
-                        listner.OnError(409, result.response)
-                    }
+
                     400 -> {
                         listner.OnError(400, result.response)
                     }
@@ -82,7 +80,7 @@ class MAPCALL(
         val bodybuilder = MultipartBody.Builder()
         bodybuilder.setType(MultipartBody.FORM)
 
-        var body: RequestBody? = null;
+        var body: RequestBody? = null
         if (params != null)
             body = Gson().toJson(params).toRequestBody(MEDIA_TYPE)
         val builder = Headers.Builder()

@@ -1,7 +1,6 @@
 package com.koushik.myrestapi
 
 import android.os.AsyncTask
-import com.google.gson.Gson
 import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody.Companion.asRequestBody
@@ -31,7 +30,7 @@ class FormPost(
                 Klog.d("## FORM RESPONSE_", result.response)
                 Klog.d(
                     "## RES-",
-                    "$url \n CODE- ${result!!.code} REQ- ${Gson().toJson(params)} \n $result"
+                    "$url \n CODE- ${result.code}  \n $result"
                 )
 
                 val respCode = result.code
@@ -41,9 +40,7 @@ class FormPost(
                     422 -> listner.OnError(422, result.response)
                     401 -> listner.OnError(401, result.response)
                     402 -> listner.OnError(402, result.response)
-                    409 -> {
-                        listner.OnError(409, result.response)
-                    }
+
                     400 -> {
                         listner.OnError(400, result.response)
                     }
