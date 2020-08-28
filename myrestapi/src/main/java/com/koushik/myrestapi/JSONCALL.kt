@@ -27,12 +27,12 @@ class JSONCALL(
 ) : AsyncTask<Void, String, ResponseData?>() {
     override fun onPostExecute(result: ResponseData?) {
         super.onPostExecute(result)
-        Klog.d("## REQ", "$params")
-        Klog.d("## RES", result.toString())
+
         if (result == null) {
             listner.OnError(500, "Something Went Wrong please try again")
         } else {
-
+            Klog.d("## REQ", "$params")
+            Klog.d("## RES", result.toString())
             try {
                 val respCode = result.code
                 when (respCode) {

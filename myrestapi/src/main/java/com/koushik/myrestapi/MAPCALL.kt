@@ -19,11 +19,14 @@ class MAPCALL(
 ) : AsyncTask<Void, String, ResponseData?>() {
     override fun onPostExecute(result: ResponseData?) {
         super.onPostExecute(result)
-        Klog.d("## RES-", "$url \n CODE- ${result!!.code} REQ- ${Gson().toJson(params)} \n $result")
+
         if (result == null) {
             listner.OnError(500, "Something Went Wrong please try again")
         } else {
-
+            Klog.d(
+                "## RES-",
+                "$url \n CODE- ${result.code} REQ- ${Gson().toJson(params)} \n $result"
+            )
             try {
                 val respCode = result.code
                 when (respCode) {
